@@ -1,0 +1,165 @@
+{
+  "19": {
+    "inputs": {
+      "seed": 831236995048558,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "29",
+        0
+      ],
+      "positive": [
+        "26",
+        0
+      ],
+      "negative": [
+        "22",
+        0
+      ],
+      "latent_image": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "21": {
+    "inputs": {
+      "text": "A cute cat is holding a smartphone and playing a game. The cat is sitting on a single sofa and wearing a knitwear.",
+      "clip": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "24": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "26": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "27": {
+    "inputs": {
+      "max_shift": 1.1500000000000001,
+      "base_shift": 0.5,
+      "width": 1024,
+      "height": 1024
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "28": {
+    "inputs": {
+      "clip_name1": "t5\\google_t5-v1_1-xxl_encoderonly-fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "29": {
+    "inputs": {
+      "unet_name": "flux-hyp8-Q4_1.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "33": {
+    "inputs": {
+      "vae_name": "FLUX1\\ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "34": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "36": {
+    "inputs": {
+      "tile_size": 512,
+      "samples": [
+        "19",
+        0
+      ],
+      "vae": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE Decode (Tiled)"
+    }
+  },
+  "37": {
+    "inputs": {
+      "images": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "SaveImageWebsocket",
+    "_meta": {
+      "title": "SaveImageWebsocket"
+    }
+  }
+}

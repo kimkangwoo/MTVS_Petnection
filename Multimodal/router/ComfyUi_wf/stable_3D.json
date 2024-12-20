@@ -1,0 +1,85 @@
+{
+  "10": {
+    "inputs": {},
+    "class_type": "StableFast3DLoader",
+    "_meta": {
+      "title": "Stable Fast 3D Loader"
+    }
+  },
+  "11": {
+    "inputs": {
+      "filename_prefix": "SF3D",
+      "preview": null,
+      "mesh": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "StableFast3DSave",
+    "_meta": {
+      "title": "Stable Fast 3D Save"
+    }
+  },
+  "12": {
+    "inputs": {
+      "foreground_ratio": 0.85,
+      "texture_resolution": 1024,
+      "remesh": "triangle",
+      "vertex_count": 10000,
+      "model": [
+        "10",
+        0
+      ],
+      "image": [
+        "13",
+        0
+      ],
+      "mask": [
+        "13",
+        1
+      ]
+    },
+    "class_type": "StableFast3DSampler",
+    "_meta": {
+      "title": "Stable Fast 3D Sampler"
+    }
+  },
+  "13": {
+    "inputs": {
+      "version": "v1.4",
+      "fp16": true,
+      "bg_color": "green",
+      "batch_size": 4,
+      "video_frames": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "BRIAAI Matting",
+    "_meta": {
+      "title": "BRIAAI Matting"
+    }
+  },
+  "14": {
+    "inputs": {
+      "images": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "16": {
+    "inputs": {
+      "image": "ComfyUI_00025_.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  }
+}
