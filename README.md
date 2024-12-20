@@ -5,8 +5,8 @@
     ■ 애완동물의 특징을 유니크한 이미지로 생성해줍니다.
     ■ 애완동물의 털색, 패턴을 이미지로 생성합니다.
 
-### [프로젝트 : 함께할래 PDF](./Petnection.pdf)
-
+### [프로젝트 PDF : 함께할래 PDF](./Petnection.pdf)
+### [프로젝트 영상 : 함께할래 Youtube](https://www.youtube.com/watch?v=b_BDdtk73GA)
 ---
 
 ### 사용 기술 
