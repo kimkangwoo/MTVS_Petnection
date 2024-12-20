@@ -1,4 +1,4 @@
-# petenction
+# Petnection AI part
     >>> 간략한 시스템 아키텍쳐 <<<
 
     ■ 애완동물의 감정을 서술합니다.
@@ -29,10 +29,7 @@
     <img src="https://i.namu.wiki/i/NRHtsUeLWYTqAesTY-x4dBI_oYKE3Oz-vTBYFAXmTsUWCrGkLwTL3RtmgI1e5WSXiy4gwkOhJKtJ90hnQHj9cWTWG-JRAg575_1f31Xm6AgQD0LF_lQftxskZCNmoAlF8LiaINlPteZ9Uq6ND6RzTQ.webp" alt="Stable Diffusion 로고" style="width: 300px; height: auto;">
 </div>
 
+--- 
 
-### 이미지 생성
-![sys architecture]()
-### 텍스쳐 생성
-![sys architecture]()
-### 애완동물 감정 추론
-![sys architecture]()
+- Image_gen | check point : https://civitai.com/models/262239/wildlifex-animals <br>
+- Image_gen | LoRA : https://civitai.com/models/41882/old-sketch-style <br>
