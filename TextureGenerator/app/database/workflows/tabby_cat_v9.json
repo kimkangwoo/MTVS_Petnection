@@ -1,0 +1,616 @@
+{
+  "1": {
+    "inputs": {
+      "image": "no_ear_cat_mask.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "An immersive close-up view entirely filled with the soft, dense, and fluffy texture of warm brown fur, showcasing an intricate pattern of fine strands. The scene displays a natural tabby-like design with alternating light and dark brown stripes blending smoothly across the frame, capturing each strand's texture with vivid detail. Delicate highlights and subtle shadows create a realistic, tactile shine that enhances the softness and depth. The overall appearance is seamless and continuous, with the frame fully enveloped in the inviting, layered richness of fur.",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "latent_image": [
+        "5",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ],
+      "pixels": [
+        "16",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "full animal body,face,paws, tail,legs, eyes,(animal:1.5), (animal shape:1.5), (full animal body:1.5), animal silhouette, (animal face:1.5)\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "9": {
+    "inputs": {
+      "seed": 708151677443147
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "고양이_줄무늬_마스크.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "white_bg.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_juggXIByRundiffusion.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "15": {
+    "inputs": {
+      "image": "KakaoTalk_20241027_141258902.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "16": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "17",
+        0
+      ],
+      "source": [
+        "15",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "17": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "18": {
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "22",
+        0
+      ],
+      "mask": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "22": {
+    "inputs": {
+      "mode": "rescale",
+      "supersample": "true",
+      "resampling": "lanczos",
+      "rescale_factor": 2,
+      "resize_width": 1024,
+      "resize_height": 1024,
+      "image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "Image Resize",
+    "_meta": {
+      "title": "Image Resize"
+    }
+  },
+  "23": {
+    "inputs": {
+      "images": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "24": {
+    "inputs": {
+      "lora_name": "ipadapter/ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "14",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "26": {
+    "inputs": {
+      "seed": 202525389491698,
+      "steps": 5,
+      "cfg": 2,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "27",
+        0
+      ],
+      "negative": [
+        "28",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "27": {
+    "inputs": {
+      "text": "A solid black background, completely dark and featureless. No textures, patterns, or lighting effects; the background should be uniformly black with a smooth, matte finish, creating a simple and unobtrusive setting.",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "28": {
+    "inputs": {
+      "text": "full animal body,face,paws, tail,legs, eyes,(animal:1.5), (animal shape:1.5), (full animal body:1.5), animal silhouette, (animal face:1.5)\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "29": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "30": {
+    "inputs": {
+      "samples": [
+        "26",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "31": {
+    "inputs": {
+      "images": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "32": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "19",
+        0
+      ],
+      "source": [
+        "30",
+        0
+      ],
+      "mask": [
+        "19",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "33": {
+    "inputs": {
+      "images": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "34": {
+    "inputs": {
+      "filename_prefix": "teddy_cat",
+      "images": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "32",
+        0
+      ],
+      "mask": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "43": {
+    "inputs": {
+      "images": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "44": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "41",
+        0
+      ],
+      "source": [
+        "56",
+        0
+      ],
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "45": {
+    "inputs": {
+      "images": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "46": {
+    "inputs": {
+      "filename_prefix": "teddy_cat",
+      "images": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "47": {
+    "inputs": {
+      "image": "dilated_image_10.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "51": {
+    "inputs": {
+      "text": "An immersive close-up view entirely filled with the soft, dense, and fluffy texture of warm brown fur, showcasing an intricate pattern of fine strands. The scene displays a natural tabby-like design with alternating light and dark brown stripes blending smoothly across the frame, capturing each strand's texture with vivid detail. Delicate highlights and subtle shadows create a realistic, tactile shine that enhances the softness and depth. The overall appearance is seamless and continuous, with the frame fully enveloped in the inviting, layered richness of fur.",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "52": {
+    "inputs": {
+      "text": "full animal body,face,paws, tail,legs, eyes,(animal:1.5), (animal shape:1.5), (full animal body:1.5), animal silhouette, (animal face:1.5)\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "53": {
+    "inputs": {
+      "seed": [
+        "55",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "51",
+        0
+      ],
+      "negative": [
+        "52",
+        0
+      ],
+      "latent_image": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "54": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "55": {
+    "inputs": {
+      "seed": 708151677443147
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "56": {
+    "inputs": {
+      "samples": [
+        "53",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  }
+}

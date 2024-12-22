@@ -1,0 +1,882 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_juggXIByRundiffusion.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "Close-up of long, soft fur with a rich brown and black stripe pattern, arranged in a symmetrical layout. The fur is detailed, with deep, alternating dark brown and black stripes that create a natural gradient effect, showcasing depth and texture. Each strand of fur is clearly defined, flowing naturally with a slight wave to emphasize the smooth, tactile feel. The dense fur captures a subtle shine, adding a sense of realism and dimensionality",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "13",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "7",
+        1
+      ],
+      "latent_image": [
+        "7",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "image": "KakaoTalk_20241027_141258902.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "image": "Back.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "pixels": [
+        "98",
+        0
+      ],
+      "mask": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "9": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "13": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "14": {
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "18": {
+    "inputs": {
+      "image": "Leg.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "19": {
+    "inputs": {
+      "image": "bottom.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "20": {
+    "inputs": {
+      "image": "chest.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "21": {
+    "inputs": {
+      "image": "Tail.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "image": "Face.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "23": {
+    "inputs": {
+      "image": "output.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "42": {
+    "inputs": {
+      "text": "Symmetrical close-up of long, dense fur with dark brown and black stripes, emulating a tail texture. The stripes grow darker and more intense towards the end, creating a natural gradient that adds depth. Each strand is soft yet thick, giving the fur a full, luxurious appearance. The fur layers smoothly, forming a rounded and plush look that highlights the thickness and softness of the tail.",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "43": {
+    "inputs": {
+      "samples": [
+        "44",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "44": {
+    "inputs": {
+      "seed": [
+        "50",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "46",
+        0
+      ],
+      "negative": [
+        "46",
+        1
+      ],
+      "latent_image": [
+        "46",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "46": {
+    "inputs": {
+      "positive": [
+        "42",
+        0
+      ],
+      "negative": [
+        "48",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "pixels": [
+        "3",
+        0
+      ],
+      "mask": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "48": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "50": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "51": {
+    "inputs": {
+      "images": [
+        "43",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "52": {
+    "inputs": {
+      "filename_prefix": "back_texture",
+      "images": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "67": {
+    "inputs": {
+      "image": "chest.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "68": {
+    "inputs": {
+      "text": "ymmetrical close-up of soft, short fur with a blend of light brown and creamy beige tones, creating a gentle, natural gradient. The fur texture is smooth and fine, transitioning subtly to a lighter color towards the top. Each strand is delicately defined, showcasing a soft, warm appearance with a subtle shine. The fur layers evenly, giving a gentle and realistic look that highlights the bright and soft texture of the chest area.",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "69": {
+    "inputs": {
+      "samples": [
+        "70",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "70": {
+    "inputs": {
+      "seed": [
+        "75",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "71",
+        0
+      ],
+      "negative": [
+        "71",
+        1
+      ],
+      "latent_image": [
+        "71",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "71": {
+    "inputs": {
+      "positive": [
+        "68",
+        0
+      ],
+      "negative": [
+        "73",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "pixels": [
+        "43",
+        0
+      ],
+      "mask": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "73": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "75": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "76": {
+    "inputs": {
+      "images": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "80": {
+    "inputs": {
+      "mask": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "85": {
+    "inputs": {
+      "images": [
+        "90",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "90": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "96",
+        0
+      ],
+      "source": [
+        "5",
+        0
+      ],
+      "mask": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "92": {
+    "inputs": {
+      "image": "white_bg.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "96": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "92",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "97": {
+    "inputs": {
+      "text": "Extreme close-up of soft, dense black fur, filling the entire frame with a high-definition texture. Each strand of fur is sharply detailed, showcasing the fine, natural texture and slight waviness. Subtle highlights emphasize the softness and thickness, creating a clear, vivid contrast between individual strands and layers for a highly realistic and tactile feel",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "98": {
+    "inputs": {
+      "samples": [
+        "99",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "99": {
+    "inputs": {
+      "seed": [
+        "105",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "101",
+        0
+      ],
+      "negative": [
+        "101",
+        1
+      ],
+      "latent_image": [
+        "101",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "100": {
+    "inputs": {
+      "image": "output.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "101": {
+    "inputs": {
+      "positive": [
+        "97",
+        0
+      ],
+      "negative": [
+        "103",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "pixels": [
+        "90",
+        0
+      ],
+      "mask": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "103": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "105": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "106": {
+    "inputs": {
+      "images": [
+        "98",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "109": {
+    "inputs": {
+      "filename_prefix": "back_texture",
+      "images": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "110": {
+    "inputs": {
+      "image": "output.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "111": {
+    "inputs": {
+      "text": "Close-up image of soft, dense fur with a warm brown and gray mix, featuring symmetrical patterns across the frame. The fur texture is detailed with alternating dark brown and black stripes, creating a natural tabby-like pattern. The image shows a subtle shine and high density, giving the fur a realistic and tactile feel. Each strand is clearly defined, blending into a consistent, smooth appearance that emphasizes the gentle texture and natural symmetry of the fur pattern.",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "112": {
+    "inputs": {
+      "samples": [
+        "113",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "113": {
+    "inputs": {
+      "seed": [
+        "118",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "114",
+        0
+      ],
+      "negative": [
+        "114",
+        1
+      ],
+      "latent_image": [
+        "114",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "114": {
+    "inputs": {
+      "positive": [
+        "111",
+        0
+      ],
+      "negative": [
+        "116",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "pixels": [
+        "69",
+        0
+      ],
+      "mask": [
+        "110",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "116": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "118": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "122": {
+    "inputs": {
+      "mask": [
+        "110",
+        0
+      ]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "132": {
+    "inputs": {
+      "mode": "rescale",
+      "supersample": "true",
+      "resampling": "lanczos",
+      "rescale_factor": 2,
+      "resize_width": 1024,
+      "resize_height": 1024,
+      "image": [
+        "112",
+        0
+      ]
+    },
+    "class_type": "Image Resize",
+    "_meta": {
+      "title": "Image Resize"
+    }
+  },
+  "133": {
+    "inputs": {
+      "images": [
+        "112",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  }
+}

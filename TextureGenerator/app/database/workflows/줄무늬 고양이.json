@@ -1,0 +1,540 @@
+{
+  "1": {
+    "inputs": {
+      "image": "output.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "An immersive close-up view entirely filled with the soft, dense, and fluffy texture of warm brown fur, showcasing an intricate pattern of fine strands. The scene displays a natural tabby-like design with alternating light and dark brown stripes blending smoothly across the frame, capturing each strand's texture with vivid detail. Delicate highlights and subtle shadows create a realistic, tactile shine that enhances the softness and depth. The overall appearance is seamless and continuous, with the frame fully enveloped in the inviting, layered richness of fur.",
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "32",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "59",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "latent_image": [
+        "5",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "32",
+        2
+      ],
+      "pixels": [
+        "34",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "9": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "14": {
+    "inputs": {
+      "image": "고양이_줄무늬_마스크.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "25": {
+    "inputs": {
+      "mask": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "31": {
+    "inputs": {
+      "image": "white_bg.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "32": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_juggXIByRundiffusion.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "33": {
+    "inputs": {
+      "image": "KakaoTalk_20241027_141258902.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "34": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "37",
+        0
+      ],
+      "source": [
+        "33",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "37": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "38": {
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "40": {
+    "inputs": {
+      "inpainted": [
+        "79",
+        0
+      ],
+      "overlay_image": [
+        "41",
+        2
+      ],
+      "crop_region": [
+        "41",
+        3
+      ]
+    },
+    "class_type": "OverlayInpaintedImage",
+    "_meta": {
+      "title": "Overlay Inpainted Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "49",
+        0
+      ],
+      "mask": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "47": {
+    "inputs": {
+      "images": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "49": {
+    "inputs": {
+      "mode": "rescale",
+      "supersample": "true",
+      "resampling": "lanczos",
+      "rescale_factor": 2,
+      "resize_width": 1024,
+      "resize_height": 1024,
+      "image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "Image Resize",
+    "_meta": {
+      "title": "Image Resize"
+    }
+  },
+  "52": {
+    "inputs": {
+      "images": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "53": {
+    "inputs": {
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "54": {
+    "inputs": {
+      "images": [
+        "41",
+        2
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "58": {
+    "inputs": {
+      "images": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "59": {
+    "inputs": {
+      "lora_name": "detailer_v5.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "32",
+        0
+      ],
+      "clip": [
+        "32",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "79": {
+    "inputs": {
+      "device_mode": "AUTO",
+      "image": [
+        "41",
+        0
+      ],
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "LaMaInpaint",
+    "_meta": {
+      "title": "LaMa Remove Object"
+    }
+  },
+  "80": {
+    "inputs": {
+      "images": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "81": {
+    "inputs": {
+      "image": "pasted/image (3).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "82": {
+    "inputs": {
+      "text": "A close-up of dense, silky black fur with fine, glossy strands, with individual strands visible, soft and feathery texture, highly detailed. The fur has natural highlights and soft shadows between strands to create depth, focusing on realistic and natural fur texture.\n",
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "83": {
+    "inputs": {
+      "samples": [
+        "84",
+        0
+      ],
+      "vae": [
+        "32",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "84": {
+    "inputs": {
+      "seed": [
+        "89",
+        0
+      ],
+      "steps": 3,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "59",
+        0
+      ],
+      "positive": [
+        "85",
+        0
+      ],
+      "negative": [
+        "85",
+        1
+      ],
+      "latent_image": [
+        "85",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "85": {
+    "inputs": {
+      "positive": [
+        "82",
+        0
+      ],
+      "negative": [
+        "87",
+        0
+      ],
+      "vae": [
+        "32",
+        2
+      ],
+      "pixels": [
+        "40",
+        0
+      ],
+      "mask": [
+        "93",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "87": {
+    "inputs": {
+      "text": "animal shape, full animal body,face,paws, tail,legs, eyes,animal silhouette, ",
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "89": {
+    "inputs": {
+      "seed": 97902647537440
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "93": {
+    "inputs": {
+      "image": "고양이_줄무늬_마스크.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "94": {
+    "inputs": {
+      "images": [
+        "83",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  }
+}

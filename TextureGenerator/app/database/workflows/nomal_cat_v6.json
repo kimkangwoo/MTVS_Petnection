@@ -1,0 +1,443 @@
+{
+  "1": {
+    "inputs": {
+      "image": "no_ear_cat_mask.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "An image filled with smooth, short white fur, creating a perfectly symmetrical and balanced symmetry without any visible animal forms or specific parts, emphasizing the texture and uniformity of the fur.",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "latent_image": [
+        "5",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ],
+      "pixels": [
+        "16",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "9": {
+    "inputs": {
+      "seed": 890275234697930
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "white_bg.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_juggXIByRundiffusion.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "15": {
+    "inputs": {
+      "image": "KakaoTalk_20241027_141258902.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "16": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "17",
+        0
+      ],
+      "source": [
+        "15",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "17": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "18": {
+    "inputs": {
+      "images": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "24": {
+    "inputs": {
+      "lora_name": "detailer_v5.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "14",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "35": {
+    "inputs": {
+      "filename_prefix": "nomal_cat",
+      "images": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "36": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "52",
+        0
+      ],
+      "mask": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "37": {
+    "inputs": {
+      "images": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "38": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "36",
+        0
+      ],
+      "source": [
+        "51",
+        0
+      ],
+      "mask": [
+        "36",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "39": {
+    "inputs": {
+      "images": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "40": {
+    "inputs": {
+      "filename_prefix": "teddy_cat",
+      "images": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "image": "dilated_image_10.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "44": {
+    "inputs": {
+      "text": "An image filled with smooth, short white fur, creating a perfectly symmetrical and balanced symmetry without any visible animal forms or specific parts, emphasizing the texture and uniformity of the fur.",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "45": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "47": {
+    "inputs": {
+      "seed": [
+        "50",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "44",
+        0
+      ],
+      "negative": [
+        "45",
+        0
+      ],
+      "latent_image": [
+        "49",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "49": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "50": {
+    "inputs": {
+      "seed": 890275234697930
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "51": {
+    "inputs": {
+      "samples": [
+        "47",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "52": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  }
+}

@@ -6,6 +6,8 @@
 *.jpg
 *.zip
 .env
+TextureGenerator/test.ipynb
+TextureGenerator/mask_test.ipynb
 
 app/database/generation_img/*
 app/database/input_images/*

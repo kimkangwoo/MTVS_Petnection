@@ -1,0 +1,866 @@
+{
+  "1": {
+    "inputs": {
+      "image": "dilated_image.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "Bright tan fur, perfectly symmetrical, soft texture",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "latent_image": [
+        "5",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ],
+      "pixels": [
+        "16",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "9": {
+    "inputs": {
+      "seed": 890275234697930
+    },
+    "class_type": "Seed Generator",
+    "_meta": {
+      "title": "Seed Generator"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "삼색냥이_마스크_final (1).png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "white_bg.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_juggXIByRundiffusion.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "15": {
+    "inputs": {
+      "image": "KakaoTalk_20241027_141258902.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "16": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "17",
+        0
+      ],
+      "source": [
+        "15",
+        0
+      ],
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "17": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "interpolation": "nearest",
+      "method": "stretch",
+      "condition": "always",
+      "multiple_of": 0,
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "18": {
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "22",
+        0
+      ],
+      "mask": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "22": {
+    "inputs": {
+      "mode": "rescale",
+      "supersample": "true",
+      "resampling": "lanczos",
+      "rescale_factor": 2,
+      "resize_width": 1024,
+      "resize_height": 1024,
+      "image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "Image Resize",
+    "_meta": {
+      "title": "Image Resize"
+    }
+  },
+  "24": {
+    "inputs": {
+      "lora_name": "detailer_v5.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "14",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "26": {
+    "inputs": {
+      "seed": 890275234698184,
+      "steps": 5,
+      "cfg": 2,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "27",
+        0
+      ],
+      "negative": [
+        "28",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "27": {
+    "inputs": {
+      "text": "Colorful fur with Dark Chocolate Brown, balanced symmetry",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "28": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "29": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "30": {
+    "inputs": {
+      "samples": [
+        "26",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "31": {
+    "inputs": {
+      "images": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "32": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "19",
+        0
+      ],
+      "source": [
+        "56",
+        0
+      ],
+      "mask": [
+        "19",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "33": {
+    "inputs": {
+      "images": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "mask_blur": 8,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "32",
+        0
+      ],
+      "mask": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "44": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "41",
+        0
+      ],
+      "source": [
+        "30",
+        0
+      ],
+      "mask": [
+        "41",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "45": {
+    "inputs": {
+      "images": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "47": {
+    "inputs": {
+      "image": "dilated_image_10.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "51": {
+    "inputs": {
+      "text": "Bright tan fur, perfectly symmetrical, soft texture",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "52": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "53": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "51",
+        0
+      ],
+      "negative": [
+        "52",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "56": {
+    "inputs": {
+      "samples": [
+        "53",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "59": {
+    "inputs": {
+      "images": [
+        "66",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "60": {
+    "inputs": {
+      "mask_blur": 10,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "44",
+        0
+      ],
+      "mask": [
+        "64",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "61": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "60",
+        0
+      ],
+      "source": [
+        "66",
+        0
+      ],
+      "mask": [
+        "60",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "63": {
+    "inputs": {
+      "filename_prefix": "teddy_cat",
+      "images": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "64": {
+    "inputs": {
+      "image": "vita_줄무늬마스크.png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "67",
+        0
+      ],
+      "negative": [
+        "68",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "66": {
+    "inputs": {
+      "samples": [
+        "65",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "67": {
+    "inputs": {
+      "text": "black fur, symmetrical balance, distinct texture",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "68": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "69": {
+    "inputs": {
+      "images": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "91": {
+    "inputs": {
+      "images": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "92": {
+    "inputs": {
+      "mask_blur": 5,
+      "inpaint_masked": true,
+      "mask_padding": 256,
+      "image": [
+        "61",
+        0
+      ],
+      "mask": [
+        "95",
+        0
+      ]
+    },
+    "class_type": "PrepareImageAndMaskForInpaint",
+    "_meta": {
+      "title": "Prepare Image & Mask for Inpaint"
+    }
+  },
+  "93": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "offset_x": 0,
+      "offset_y": 0,
+      "destination": [
+        "92",
+        0
+      ],
+      "source": [
+        "97",
+        0
+      ],
+      "mask": [
+        "92",
+        1
+      ]
+    },
+    "class_type": "ImageComposite+",
+    "_meta": {
+      "title": "🔧 Image Composite"
+    }
+  },
+  "94": {
+    "inputs": {
+      "filename_prefix": "teddy_cat",
+      "images": [
+        "93",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "95": {
+    "inputs": {
+      "image": "chest_v4 (15).png",
+      "channel": "green",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "96": {
+    "inputs": {
+      "seed": [
+        "9",
+        0
+      ],
+      "steps": 5,
+      "cfg": 1.8,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "98",
+        0
+      ],
+      "negative": [
+        "99",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "97": {
+    "inputs": {
+      "samples": [
+        "96",
+        0
+      ],
+      "vae": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "98": {
+    "inputs": {
+      "text": "white fur, symmetrical balance, distinct texture",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "99": {
+    "inputs": {
+      "text": "animal shape, full animal body, face, paws, tail, legs, eyes, animal silhouette, ears, whiskers, snout, muzzle, claws, head, torso, neck, chest, hind legs, front legs, animal markings, stripes, spots, animal outline, animal details, animal features, animal head, animal body parts, mammal body, animal portrait, animal expression, creature form, pet, animal profile, nose, mouth, teeth, tongue, smile, fur pattern, animal eyes, eye color, pupil, eyelashes, eyebrow, animal print, fur pattern on body\n",
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative"
+    }
+  }
+}
